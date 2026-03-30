@@ -38,7 +38,11 @@ def registering_student():
             continue
 
         NAME = input("What is the student name?")
-        
+
+        if not NAME.isalpha():
+            print("Invalid input")
+            continue
+
         try: 
             AGE = input("How old the student is?")
             
@@ -54,27 +58,23 @@ def registering_student():
         
         try:
             CAREER = input(f"What is the student career from next? {programs} ")
-            if not CAREER.isalpha():
-                print("Invalid input")
-                continue
-
         except ValueError:
             print("Error: Invalid input")
 
         try: 
             STATUS = input("The student is currently active? Type: True or False")
 
-            if not STATUS == "True":
-                print("Error: Type 'True' or 'False'")
-                continue
-
-            elif not STATUS == "False":      
+            if not STATUS == "True" or "False":
+                
                 print("Error: Type 'True' or 'False'")
                 continue
 
         except ValueError:
             print("Error: Invalid input")   
      
+
+
+
 
 
 
