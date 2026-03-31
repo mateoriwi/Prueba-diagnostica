@@ -1,3 +1,17 @@
+import json
+
+def load_students():
+    global students
+    try:
+        with open("students.json", "r") as file:
+            students = json.load(file)
+    except FileNotFoundError:
+        students = []
+
+def save_students():
+    with open("students.json", "w") as archivo:
+        json.dump(students, archivo, indent=4)
+
 programs = ('Foreign_Trade_Operations','Management_Administrative','Logistics_Operations_Management', 
 'Tourism_and_Hotel_Management','Electrical_Systems_Management', 'Occupational_Health_and_Safety_Management',
 'Operation_of_Industrial_Processes', 'Computer_Systems_Maintenance')
@@ -77,4 +91,52 @@ def registering_student():
     "student_CAREER":CAREER,
     "student_status":STATUS,
 }
-    students.append=(student)
+    students.append(student)
+    save_students()
+
+def show_students():
+    if not students:
+        print("There is no stundets")
+        return
+    
+    for student in students:
+        print(student)
+
+def find_student():
+    search = input(" Enter ID or Name of the student")
+
+    found = false 
+
+    for student in students:
+        if student["student_ID"] == search or student["student_NAME"].lower() == search.lower():
+            print(student)
+            found = True
+            
+        if not found:
+            print("Student not found")
+
+def update_student():
+    ID = input("Enter student ID: ")
+    for student in students:
+        if student["student:ID"] == ID:
+
+            student["student_NAME"] = input("New name: ")
+            student["student_AGE"] = int(input("New age: "))
+            student["student_CAREER"] = input(f"New career {programs}: ")
+            student["student_STATUS"] = input("New student status (True/false): ")
+
+            save_students()
+            print("student_updated")
+            return
+    print("Student not found")
+
+def delete_student():
+    ID = input("Enter student ID: ")
+    
+    for student in students:
+        if student ["student_ID"] == ID:
+            students.remove(student)
+            save_students(
+                print("Student deleted")) 
+            return
+    print("Student not found")
