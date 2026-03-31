@@ -59,7 +59,7 @@ def registering_student():
         break
 
     while True:
-            AGE = input("How old the student is?\n")
+            AGE = int(input("How old the student is?\n"))
             
             if not AGE: 
                 print("Error: Could not read anything")
@@ -89,14 +89,14 @@ def registering_student():
     "student_NAME":NAME,
     "student_AGE":AGE,
     "student_CAREER":CAREER,
-    "student_status":STATUS,
+    "student_STATUS":STATUS,
 }
     students.append(student)
     save_students()
 
 def show_students():
     if not students:
-        print("There is no stundets")
+        print("There are no stundets")
         return
     
     for student in students:
@@ -105,20 +105,20 @@ def show_students():
 def find_student():
     search = input(" Enter ID or Name of the student")
 
-    found = false 
+    found = False 
 
     for student in students:
         if student["student_ID"] == search or student["student_NAME"].lower() == search.lower():
             print(student)
             found = True
             
-        if not found:
+    if not found:
             print("Student not found")
 
 def update_student():
     ID = input("Enter student ID: ")
     for student in students:
-        if student["student:ID"] == ID:
+        if student["student_ID"] == ID:
 
             student["student_NAME"] = input("New name: ")
             student["student_AGE"] = int(input("New age: "))
@@ -136,7 +136,7 @@ def delete_student():
     for student in students:
         if student ["student_ID"] == ID:
             students.remove(student)
-            save_students(
-                print("Student deleted")) 
+            save_students()
+            print("Student deleted")
             return
     print("Student not found")
