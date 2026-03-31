@@ -71,11 +71,10 @@ def registering_student():
 
 
     student = {
-    "student_ID":"ID",
-    "student_NAME":"NAME",
-    "student_AGE":"AGE",
-    "student_CAREER":"CAREER",
-    "student_status":"STATUS",
+    "student_ID":ID,
+    "student_NAME":NAME,
+    "student_AGE":AGE,
+    "student_CAREER":CAREER,
+    "student_status":STATUS,
 }
-    students[student]={}
-    print(students)
+    students.append=(student)
