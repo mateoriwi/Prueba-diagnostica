@@ -1,6 +1,6 @@
-programs = ('Foreign Trade Operations','Management Administrative','Logistics Operations Management', 
-'Tourism and Hotel Management','Electrical Systems Management', 'Occupational Health and Safety Management'
-'Operation of Industrial Processes', 'Computer Systems Maintenance')
+programs = ('Foreign_Trade_Operations','Management_Administrative','Logistics_Operations_Management', 
+'Tourism_and_Hotel_Management','Electrical_Systems_Management', 'Occupational_Health_and_Safety_Management'
+'Operation_of_Industrial_Processes', 'Computer_Systems_Maintenance')
 
 def main_menu():
 
@@ -17,9 +17,8 @@ def main_menu():
 def registering_student():
     
     while True:
-        try:
             ID = input("What is the ID of the student?\n")
-
+        
             if not ID:
                 print("Error: Could not read anything")
                 continue
@@ -32,19 +31,19 @@ def registering_student():
 
                 print("Error: We only process between 4 and 7 characters")
                 continue
-        
-        except ValueError:
-            print("Error: You only have to enter numbers. ")
-            continue
+            break
+    
 
-        NAME = input("What is the student name?")
+    while True:
+        NAME = input("What is the student name?\n")
 
         if not NAME.isalpha():
             print("Invalid input")
             continue
+        break
 
-        try: 
-            AGE = input("How old the student is?")
+    while True:
+            AGE = input("How old the student is?\n")
             
             if not AGE: 
                 print("Error: Could not read anything")
@@ -52,28 +51,20 @@ def registering_student():
 
             if not AGE.isdigit():
                 print("Error: Only numbers")
-
-        except ValueError:
-            print("Error: You only have to enter numbers. ")
+            break
+    
+    while True:
+        CAREER = input(f"What is the student career from next? {programs}\n")
         
-        try:
-            CAREER = input(f"What is the student career from next? {programs} ")
-        except ValueError:
-            print("Error: Invalid input")
+        if CAREER in programs:
+            break 
 
-        try: 
-            STATUS = input("The student is currently active? Type: True or False")
+    while True:
+        STATUS = input("The student is currently active? Type: True or False\n")
 
-            if not STATUS == "True" or "False":
-                
-                print("Error: Type 'True' or 'False'")
-                continue
-
-        except ValueError:
-            print("Error: Invalid input")   
-     
-
-
+        if not STATUS == ["True" or "False"]:
+            print("Error: Type 'True' or 'False'")
+            continue
 
 
 
