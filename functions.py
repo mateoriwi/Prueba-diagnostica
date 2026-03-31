@@ -1,5 +1,5 @@
 programs = ('Foreign_Trade_Operations','Management_Administrative','Logistics_Operations_Management', 
-'Tourism_and_Hotel_Management','Electrical_Systems_Management', 'Occupational_Health_and_Safety_Management'
+'Tourism_and_Hotel_Management','Electrical_Systems_Management', 'Occupational_Health_and_Safety_Management',
 'Operation_of_Industrial_Processes', 'Computer_Systems_Maintenance')
 
 students = []
@@ -53,6 +53,7 @@ def registering_student():
 
             if not AGE.isdigit():
                 print("Error: Only numbers")
+                continue
             break
     
     while True:
@@ -62,12 +63,12 @@ def registering_student():
             break 
 
     while True:
-        STATUS = input("The student is currently active? Type: True or False\n")
+        STATUS = input("The student is currently active? Type: True or False\n").strip().lower()
 
-        if STATUS in = ["True", "False"]:
-            STATUS = True if STATUS == "True" else False
-        STATUS = True if STATUS == "True" else False
-        break
+        if STATUS in ["true", "false"]:
+            STATUS = True if STATUS == "true" else False
+            break
+
 
     student = {
     "student_ID":"ID",
@@ -78,5 +79,3 @@ def registering_student():
 }
     students[student]={}
     print(students)
-
-
