@@ -2,6 +2,8 @@ programs = ('Foreign_Trade_Operations','Management_Administrative','Logistics_Op
 'Tourism_and_Hotel_Management','Electrical_Systems_Management', 'Occupational_Health_and_Safety_Management'
 'Operation_of_Industrial_Processes', 'Computer_Systems_Maintenance')
 
+students = []
+
 def main_menu():
 
     print("Welcome to the official page of Insitución Universitaria de Barranquilla!")
@@ -62,10 +64,19 @@ def registering_student():
     while True:
         STATUS = input("The student is currently active? Type: True or False\n")
 
-        if not STATUS == ["True" or "False"]:
-            print("Error: Type 'True' or 'False'")
-            continue
+        if STATUS in = ["True", "False"]:
+            STATUS = True if STATUS == "True" else False
+        STATUS = True if STATUS == "True" else False
+        break
 
-
+    student = {
+    "student_ID":"ID",
+    "student_NAME":"NAME",
+    "student_AGE":"AGE",
+    "student_CAREER":"CAREER",
+    "student_status":"STATUS",
+}
+    students[student]={}
+    print(students)
 
 
