@@ -25,10 +25,10 @@ def main_menu():
     print("Here are some options for Admins, choose what you need")
     print("1. Register a new student")
     print("2. Consult a student information")
-    print("3. Consult a student based in them data (ID, Name, etc...) ")
+    print("3. Consult a student based in them data (ID, Name, etc...)")
     print("4. Update student information")
     print("5. Delete student information")
-    
+    print("0. Exit")
 
 def registering_student():
     
@@ -59,7 +59,7 @@ def registering_student():
         break
 
     while True:
-            AGE = int(input("How old the student is?\n"))
+            AGE = input("How old the student is?\n")
             
             if not AGE: 
                 print("Error: Could not read anything")
@@ -123,7 +123,8 @@ def update_student():
             student["student_NAME"] = input("New name: ")
             student["student_AGE"] = int(input("New age: "))
             student["student_CAREER"] = input(f"New career {programs}: ")
-            student["student_STATUS"] = input("New student status (True/false): ")
+            status = input("New student status (True/false): ").lower()
+            student["student_status"] = True if status == "true" else False
 
             save_students()
             print("student_updated")
@@ -140,3 +141,6 @@ def delete_student():
             print("Student deleted")
             return
     print("Student not found")
+
+def exit_program():
+    exit
